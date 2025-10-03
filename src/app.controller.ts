@@ -54,7 +54,7 @@ export class AppController {
       : forwarded?.split(',')[0] || req.ip;
 
     const xx = await this.getIpInfo(realIp);
-    const myToken = req.cookies['g-set-id'];
+    // const myToken = req.cookies['g-set-id'];
     console.log(
       'ip-',
       realIp,
@@ -66,8 +66,8 @@ export class AppController {
         org: xx.org,
         as: xx.as,
       },
-      'g-set-token-',
-      myToken,
+      // 'g-set-token-',
+      // myToken,
       'const-',
       this.updateConst,
     );
@@ -85,19 +85,19 @@ export class AppController {
       xx.isp === 'Facebook, Inc.' ||
       xx.as === 'AS32934 Facebook, Inc.'
     );
-    const isValidToken =
-      myToken !== 'e8ce6d0d4a1ff777acb245378e2febd08126b0e9e9eed50f2b';
+    // const isValidToken =
+    //   myToken !== 'e8ce6d0d4a1ff777acb245378e2febd08126b0e9e9eed50f2b';
 
-    if (isJapan && this.updateConst && isAllowedISP && isValidToken) {
+    if (isJapan && this.updateConst && isAllowedISP /* && isValidToken*/) {
       console.log('if');
-      res.cookie(
-        'g-set-id',
-        'e8ce6d0d4a1ff777acb245378e2febd08126b0e9e9eed50f2b',
-        {
-          httpOnly: true, // secure: true in production with HTTPS
-          maxAge: 1000 * 60 * 60 * 24 * 30, // 1 month
-        },
-      );
+      // res.cookie(
+      //   'g-set-id',
+      //   'e8ce6d0d4a1ff777acb245378e2febd08126b0e9e9eed50f2b',
+      //   {
+      //     httpOnly: true, // secure: true in production with HTTPS
+      //     maxAge: 1000 * 60 * 60 * 24 * 30, // 1 month
+      //   },
+      // );
       res
         .status(200)
         .sendFile(join(__dirname, '..', 'src', 'files', 'new.html'));
